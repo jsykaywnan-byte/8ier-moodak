@@ -9,7 +9,7 @@ header { background: #6a0dad; padding: 15px 8%; display: flex; justify-content: 
 nav a { color: white; text-decoration: none; margin: 0 10px; font-weight: bold; }
 
 /* Hero Section */
-.hero { height: 90vh; background: url('images/cafe-bg.jpg') center/cover; display: flex; justify-content: center; align-items: center; }
+
 .overlay { background: rgba(0,0,0,.55); padding: 50px; border-radius: 20px; text-align: center; color: white; }
 
 /* Cards Grid */
@@ -21,22 +21,23 @@ nav a { color: white; text-decoration: none; margin: 0 10px; font-weight: bold; 
 
 /* ضبط أحجام الصور */
 .card img { width: 100%; height: 220px; object-fit: cover; display: block; }
+.hero{
+    height:80vh;
+    background:url('images/cafe-bg.jpg');
+    background-size:contain;
+    background-repeat:no-repeat;
+    background-position:center;
+    background-color:#f5f1fa;
+}
 
 /* التجاوب مع الشاشات */
-@media (max-width: 768px) {
-    .cards { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
-    .overlay h1 { font-size: 40px; }
-}
 
-@media (max-width: 480px) {
-    header { flex-direction: column; gap: 10px; }
-    .cards { grid-template-columns: 1fr; }
-}
+
 
 /* Footer & Contact */
 .contact-section { padding: 50px 20px; text-align: center; }
 .contact-container { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
-.contact-card { width: 150px; height: 150px; background: #6a0dad; color: white; display: flex; flex-direction: column; justify-content: center; align-items: center; border-radius: 20px; text-decoration: none; }
+
 
 footer { background: #6a0dad; color: white; text-align: center; padding: 20px; margin-top: 50px; }
 
@@ -113,10 +114,7 @@ nav a{
     align-items:center;
 }
 
-.contact-card{
-    width:220px;
-    height:180px;
-}
+
 }
 .card h3{
     color:#6a0dad;
@@ -124,26 +122,8 @@ nav a{
     font-weight:900;
     padding:15px 15px 8px;
 }
-.contact-card{
-    width:220px;
-    height:220px;
-    border-radius:25px;
-    text-decoration:none;
-    color:white;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    transition:0.4s ease;
-    box-shadow:0 10px 25px rgba(0,0,0,.15);
-}
 
-/* لون موحد أورانج */
-.phone,
-.whatsapp,
-.facebook{
-    background:linear-gradient(135deg,#ff9800,#ff6f00);
-}
+
 
 /* حركة عند المرور */
 .contact-card:hover{
@@ -377,4 +357,106 @@ to{
     align-items:center;
 }
 
+}
+.contact-card{
+    width:170px;
+    height:170px;
+
+    border-radius:20px;
+    text-decoration:none;
+    color:white;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    transition:0.4s ease;
+    box-shadow:0 8px 20px rgba(0,0,0,.15);
+}
+.contact-card i{
+    font-size:45px;
+    margin-bottom:12px;
+    transition:.4s;
+}
+
+.contact-card span{
+    font-size:18px;
+    font-weight:700;
+}
+
+.hero{
+    height:90vh;
+    background:url('images/cafe-bg.jpg');
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+.contact-container{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:18px;
+}
+
+.contact-card{
+    width:320px;
+    height:60px;
+
+    border-radius:50px;
+
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+    align-items:center;
+    gap:12px;
+
+    text-decoration:none;
+    color:white;
+
+    font-size:18px;
+    font-weight:700;
+
+    transition:.4s;
+}
+
+.phone{
+    background:white;
+    color:#6a0dad;
+}
+
+.whatsapp{
+    background:#25D366;
+}
+
+.facebook{
+    background:#1877F2;
+}
+
+.contact-card:hover{
+    transform:translateY(-5px) scale(1.03);
+}
+
+.contact-card i{
+    font-size:22px;
+}
+.contact-section{
+    background:#f1aa41;
+    padding:80px 20px;
+    text-align:center;
+}
+
+.contact-section h2{
+    color:white;
+    font-size:40px;
+    margin-bottom:15px;
+}
+
+.contact-text{
+    color:#ddd;
+    margin-bottom:35px;
 }
