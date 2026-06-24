@@ -1,86 +1,380 @@
-/* تنسيقات أساسية */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Cairo', sans-serif;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Cairo', sans-serif; }
 
-body {
-    background: #cdb1f4;
-}
+body { background: #f5f1fa; }
 
-/* الهيدر */
-header {
-    background: #6a0dad;
-    padding: 15px 8%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-}
+header { background: #6a0dad; padding: 15px 8%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }
 
 .logo { color: white; font-size: 30px; font-weight: 900; }
+
 nav a { color: white; text-decoration: none; margin: 0 10px; font-weight: bold; }
 
-/* قسم البداية (Hero) */
-.hero {
-    height: 90vh;
-    background: url(images/cafe-bg.jpg) center/cover;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
+/* Hero Section */
+.hero { height: 90vh; background: url('images/cafe-bg.jpg') center/cover; display: flex; justify-content: center; align-items: center; }
+.overlay { background: rgba(0,0,0,.55); padding: 50px; border-radius: 20px; text-align: center; color: white; }
 
-.overlay { background: rgba(0,0,0,.55); padding: 50px; border-radius: 20px; color: white; }
-.title { font-size: 90px; font-weight: 900; margin-bottom: 20px; }
-
-.line1, .line2, .line3 { font-size: 32px; font-weight: 700; margin: 15px 0; opacity: 0; }
-.line1, .line3 { animation: rightLeft 1s ease forwards; }
-.line2 { animation: leftRight 1s ease forwards; }
-.line1 { animation-delay: .5s; }
-.line2 { animation-delay: 1s; }
-.line3 { animation-delay: 1.5s; }
-
-.btn { display: inline-block; margin-top: 20px; padding: 12px 30px; background: #ff9800; color: white; text-decoration: none; border-radius: 30px; opacity: 0; animation: bottomUp 1s ease forwards 2s; }
-
-/* المنيو والبطاقات */
+/* Cards Grid */
 .category { padding: 60px 5%; }
-.banner { position: relative; margin-bottom: 30px; }
-.banner img { width: 100%; height: 250px; object-fit: cover; }
-.banner h2 { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); color: white; font-size: 40px; background: rgba(0,0,0,.5); padding: 10px 20px; border-radius: 10px; }
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; }
 
-.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-.card { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,.1); transition: .3s; }
+.card { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,.1); transition: 0.3s; }
 .card:hover { transform: translateY(-10px); }
-.card img { width: 100%; height: 220px; object-fit: cover; }
-.card h3 { padding: 15px; color: #6a0dad; }
-.card p { padding: 0 15px 15px; color: #ff7a00; font-weight: bold; }
 
-/* التواصل والفوتر */
-.contact-section { padding: 80px 20px; text-align: center; background: linear-gradient(135deg, #f8f5ff, #ffffff); }
-.contact-container { display: flex; justify-content: center; gap: 25px; flex-wrap: wrap; }
-.contact-card { width: 220px; height: 220px; border-radius: 25px; text-decoration: none; color: white; display: flex; flex-direction: column; justify-content: center; align-items: center; transition: 0.4s; box-shadow: 0 10px 25px rgba(0,0,0,.15); }
-.contact-card:hover { transform: translateY(-12px); }
-.phone { background: linear-gradient(135deg, #ff9800, #ff6f00); }
-.whatsapp { background: linear-gradient(135deg, #25D366, #128C7E); }
-.facebook { background: linear-gradient(135deg, #1877F2, #0d47a1); }
-.contact-card i { font-size: 65px; margin-bottom: 20px; }
+/* ضبط أحجام الصور */
+.card img { width: 100%; height: 220px; object-fit: cover; display: block; }
 
-footer { background: #6a0dad; color: white; text-align: center; padding: 40px; margin-top: 50px; }
-
-/* الأنيميشن */
-@keyframes rightLeft { from { opacity: 0; transform: translateX(120px); } to { opacity: 1; transform: translateX(0); } }
-@keyframes leftRight { from { opacity: 0; transform: translateX(-120px); } to { opacity: 1; transform: translateX(0); } }
-@keyframes bottomUp { from { opacity: 0; transform: translateY(80px); } to { opacity: 1; transform: translateY(0); } }
-
-/* التجاوب مع الموبايل */
-@media(max-width:768px) {
-    .title { font-size: 50px; }
-    .contact-card { width: 170px; height: 170px; }
-    .contact-card i { font-size: 50px; }
+/* التجاوب مع الشاشات */
+@media (max-width: 768px) {
+    .cards { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+    .overlay h1 { font-size: 40px; }
 }
 
+@media (max-width: 480px) {
+    header { flex-direction: column; gap: 10px; }
+    .cards { grid-template-columns: 1fr; }
+}
+
+/* Footer & Contact */
+.contact-section { padding: 50px 20px; text-align: center; }
+.contact-container { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+.contact-card { width: 150px; height: 150px; background: #6a0dad; color: white; display: flex; flex-direction: column; justify-content: center; align-items: center; border-radius: 20px; text-decoration: none; }
+
+footer { background: #6a0dad; color: white; text-align: center; padding: 20px; margin-top: 50px; }
+
+.card p{
+    color:#ff7a00;
+    font-weight:800;
+    font-size:18px;
+    margin-bottom:5px;
+    text-shadow:0 1px 3px rgba(255,122,0,.3);
+}
+@media(max-width:768px){
+
+header{
+    flex-direction:column;
+    gap:15px;
+    padding:15px;
+}
+
+.logo{
+    font-size:28px;
+}
+
+nav{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:10px;
+}
+
+nav a{
+    margin:0;
+    font-size:15px;
+}
+
+.hero{
+    height:70vh;
+}
+
+.overlay{
+    width:90%;
+    padding:25px;
+}
+
+.title{
+    font-size:42px !important;
+}
+
+
+
+.btn{
+    padding:14px 28px;
+    font-size:18px;
+}
+
+.cards{
+    grid-template-columns:1fr;
+}
+
+.card{
+    max-width:400px;
+    margin:auto;
+}
+
+.card img{
+    height:280px;
+}
+
+.category h2{
+    font-size:32px;
+}
+
+.contact-container{
+    flex-direction:column;
+    align-items:center;
+}
+
+.contact-card{
+    width:220px;
+    height:180px;
+}
+}
+.card h3{
+    color:#6a0dad;
+    font-size:22px;
+    font-weight:900;
+    padding:15px 15px 8px;
+}
+.contact-card{
+    width:220px;
+    height:220px;
+    border-radius:25px;
+    text-decoration:none;
+    color:white;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    transition:0.4s ease;
+    box-shadow:0 10px 25px rgba(0,0,0,.15);
+}
+
+/* لون موحد أورانج */
+.phone,
+.whatsapp,
+.facebook{
+    background:linear-gradient(135deg,#ff9800,#ff6f00);
+}
+
+/* حركة عند المرور */
+.contact-card:hover{
+    transform:translateY(-12px) scale(1.08);
+    box-shadow:0 15px 35px rgba(255,122,0,.45);
+}
+
+/* حركة الأيقونة */
+.contact-card:hover i{
+    transform:rotate(10deg) scale(1.2);
+}
+
+.contact-card i{
+    font-size:65px;
+    margin-bottom:20px;
+    transition:0.4s;
+}
+
+.contact-card span{
+    font-size:22px;
+    font-weight:bold;
+}
+@keyframes rightLeft{
+
+from{
+    opacity:0;
+    transform:translateX(200px);
+}
+
+to{
+    opacity:1;
+    transform:translateX(0);
+}
+
+}
+
+@keyframes leftRight{
+
+from{
+    opacity:0;
+    transform:translateX(-200px);
+}
+
+to{
+    opacity:1;
+    transform:translateX(0);
+}
+
+}
+.line1{
+    opacity:0;
+    animation:rightLeftZoom 1s ease forwards;
+    animation-delay:.5s;
+}
+
+.line2{
+    opacity:0;
+    animation:leftRightZoom 1s ease forwards;
+    animation-delay:1s;
+}
+
+.line3{
+    opacity:0;
+    animation:rightLeftZoom 1s ease forwards;
+    animation-delay:1.5s;
+}
+
+@keyframes rightLeftZoom{
+from{
+    opacity:0;
+    transform:translateX(200px) scale(.5);
+}
+to{
+    opacity:1;
+    transform:translateX(0) scale(1);
+}
+}
+
+@keyframes leftRightZoom{
+from{
+    opacity:0;
+    transform:translateX(-200px) scale(.5);
+}
+to{
+    opacity:1;
+    transform:translateX(0) scale(1);
+}
+}
+.hero-btn{
+    background:linear-gradient(135deg,#ff9800,#ff6f00);
+    color:white;
+    font-size:24px;
+    font-weight:800;
+    padding:16px 40px;
+    border-radius:50px;
+    text-decoration:none;
+    display:inline-block;
+
+    opacity:0;
+    animation:bottomUp 1s ease forwards;
+    animation-delay:2s;
+
+    transition:all .4s ease;
+    box-shadow:0 8px 20px rgba(255,122,0,.35);
+}
+.hero-btn:hover{
+    transform:translateY(-6px) scale(1.08);
+    box-shadow:0 15px 30px rgba(255,122,0,.55);
+}
+.hero-btn:active{
+    transform:scale(.95);
+}
+.hero-btn{
+    animation:
+    bottomUp 1s ease forwards 2s,
+    pulseBtn 2s infinite 3s;
+}
+
+@keyframes pulseBtn{
+
+0%{
+    transform:scale(1);
+}
+
+50%{
+    transform:scale(1.05);
+}
+
+100%{
+    transform:scale(1);
+}
+
+}
+.title{
+    font-size:70px;
+    font-weight:900;
+    margin-bottom:20px;
+    text-shadow:0 5px 15px rgba(0,0,0,.4);
+}
+
+.line1,
+.line2,
+.line3{
+    font-size:32px;
+    font-weight:700;
+    margin:15px 0;
+    text-shadow:0 3px 10px rgba(0,0,0,.4);
+}
+
+.hero-btn{
+    background:linear-gradient(135deg,#ff9800,#ff6f00);
+    color:white;
+    font-size:24px;
+    font-weight:800;
+    padding:16px 40px;
+    border-radius:50px;
+    text-decoration:none;
+    display:inline-block;
+
+    opacity:0;
+    animation:
+    bottomUp 1s ease forwards 2s,
+    pulseBtn 2s infinite 3s;
+
+    transition:all .4s ease;
+    box-shadow:0 8px 20px rgba(255,122,0,.35);
+}
+
+.hero-btn:hover{
+    transform:translateY(-6px) scale(1.08);
+    box-shadow:0 15px 30px rgba(255,122,0,.55);
+}
+
+.hero-btn:active{
+    transform:scale(.95);
+}
+
+@keyframes bottomUp{
+from{
+    opacity:0;
+    transform:translateY(80px);
+}
+to{
+    opacity:1;
+    transform:translateY(0);
+}
+}
+
+@keyframes pulseBtn{
+0%{
+    transform:scale(1);
+}
+50%{
+    transform:scale(1.05);
+}
+100%{
+    transform:scale(1);
+}
+}
+@media(max-width:768px){
+
+.title{
+    font-size:48px;
+}
+
+.line1,
+.line2,
+.line3{
+    font-size:22px;
+}
+
+.cards{
+    grid-template-columns:1fr;
+}
+
+.card{
+    max-width:400px;
+    margin:auto;
+}
+
+.card img{
+    height:300px;
+}
+
+.hero{
+    height:80vh;
+}
+
+.contact-container{
+    flex-direction:column;
+    align-items:center;
+}
+
+}
