@@ -1,4 +1,3 @@
-
 * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Cairo', sans-serif; }
 
 body { background: #f5f1fa; }
@@ -22,13 +21,15 @@ nav a { color: white; text-decoration: none; margin: 0 10px; font-weight: bold; 
 
 /* ضبط أحجام الصور */
 .card img { width: 100%; height: 220px; object-fit: cover; display: block; }
-.hero{
-    height:80vh;
-    background:url('images/cafe-bg.jpg');
-    background-size:contain;
-    background-repeat:no-repeat;
-    background-position:center;
-    background-color:#f5f1fa;
+.hero {
+    height: 90vh;
+    background: url('images/cafe-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* التجاوب مع الشاشات */
@@ -460,4 +461,39 @@ to{
 .contact-text{
     color:#ddd;
     margin-bottom:35px;
+}
+/* --- كود مخصص لضبط البانر على الموبايل --- */
+@media (max-width: 768px) {
+    .hero {
+        height: 45vh !important; /* تقليل الارتفاع ليناسب الموبايل */
+        background-size: contain !important; /* إظهار الصورة كاملة بدون قص الأطراف */
+        background-position: center top !important; /* ضبط مكان الصورة */
+    }
+
+    .overlay {
+        width: 100% !important;
+        height: 100% !important;
+        padding: 10px !important;
+        background: rgba(0, 0, 0, 0.3) !important; /* تغميق خفيف جداً عشان الكلام يبان */
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        border-radius: 0 !important;
+    }
+
+    /* تصغير النصوص عشان ما تغطيش على الرسومات */
+    .title {
+        font-size: 32px !important;
+        margin-bottom: 5px !important;
+    }
+
+    .line1, .line2, .line3 {
+        font-size: 16px !important;
+        margin: 3px 0 !important;
+    }
+
+    .hero-btn {
+        padding: 8px 20px !important;
+        font-size: 15px !important;
+    }
 }
