@@ -39,7 +39,7 @@
     <div id="fancy-cart" class="fancy-cart-panel">
         <div class="cart-header">
             <h3><i class="fas fa-shopping-basket"></i> تفاصيل طلبك الحالي</h3>
-            <span class="cart-subtitle">حدد أسعار منتجاتك من الأسفل وس تظهر هنا فوراً ✨</span>
+            <span class="cart-subtitle">حدد أسعار منتجاتك من الأسفل وستظهر هنا فوراً ✨</span>
         </div>
         <div id="cart-items" class="fancy-cart-items">
             <p class="empty-msg">سلة الطلبات فارغة الآن.. اختر ما يسعد مودك بالأسفل!</p>
@@ -575,41 +575,31 @@
     <p>كل اللي تحبه تحت سقف واحد</p>
     <p class="copyright">&copy; 2026 جميع الحقوق محفوظة</p>
 </footer>
+
+<!-- كود الجافا سكريبت مدمج هنا مباشرة ليعمل تلقائياً وبأعلى كفاءة -->
 <script>
-// دالة لتفعيل اختيار الأسعار داخل الكروت
-function setupPriceButtons() {
-    const priceButtons = document.querySelectorAll('.price-btn');
-    priceButtons.forEach(button => {
-        // حماية لمنع تكرار الإيفينت
-        button.removeEventListener('click', handlePriceClick);
-        button.addEventListener('click', handlePriceClick);
+document.addEventListener("DOMContentLoaded", function() {
+    // تشغيل كود أزرار تحويل الأسعار التفاعلية
+    document.body.addEventListener('click', function(e) {
+        if (e.target && e.target.classList.contains('price-btn')) {
+            const parent = e.target.parentElement;
+            parent.querySelectorAll('.price-btn').forEach(btn => btn.classList.remove('active'));
+            e.target.classList.add('active');
+        }
     });
-}
-
-function handlePriceClick(e) {
-    const parent = e.target.parentElement;
-    parent.querySelectorAll('.price-btn').forEach(btn => btn.classList.remove('active'));
-    e.target.classList.add('active');
-}
-
-// تشغيل التفعيل فوراً وعند تحميل الصفحة
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', setupPriceButtons);
-} else {
-    setupPriceButtons();
-}
+});
 
 let cart = [];
 
-// دالة إضافة أوردر جديد للسلة
 function addToCart(button) {
     const card = button.closest('.card');
-    const baseName = card.getAttribute('data-name');
+    if (!card) return;
     
-    // الحصول على السعر النشط
+    const baseName = card.getAttribute('data-name');
     const activePriceBtn = card.querySelector('.price-btn.active');
+    
     if (!activePriceBtn) {
-        alert('برجاء اختيار السعر أولاً بالضغط عليه!');
+        alert('من فضلك حدد السعر المطلوب أولاً بالضغط عليه!');
         return;
     }
     
@@ -632,7 +622,6 @@ function addToCart(button) {
     updateCartUI();
 }
 
-// دالة تحديث شكل السلة في أول الصفحة
 function updateCartUI() {
     const cartItemsDiv = document.getElementById('cart-items');
     const cartTotalSpan = document.getElementById('cart-total');
@@ -669,7 +658,6 @@ function removeFromCart(index) {
     updateCartUI();
 }
 
-// دالة إرسال الطلب للواتساب
 function sendOrderToWhatsapp() {
     const customerName = document.getElementById('customer-name').value.trim();
     
@@ -704,6 +692,5 @@ function sendOrderToWhatsapp() {
     window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, '_blank');
 }
 </script>
-
 </body>
 </html>
