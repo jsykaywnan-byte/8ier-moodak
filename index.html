@@ -34,7 +34,7 @@
     </div>
 </section>
 
-<!-- قسم عرض الطلب الشيك - في مكان بارز وواضح جداً أول الصفحة -->
+<!-- قسم عرض الطلب الشيك -->
 <div class="container-order-wrapper">
     <div id="fancy-cart" class="fancy-cart-panel">
         <div class="cart-header">
@@ -556,12 +556,14 @@
     <p class="contact-text">احجز لمتك أو اطلب دلوقتي بكل سهولة ✨</p>
     <div class="contact-container">
         
+        <!-- رقم المكالمات والاتصال المحدث -->
         <a href="tel:01200541232" class="contact-card phone">
             <i class="fas fa-phone-alt"></i>
             <span>اتصل بنا</span>
         </a>
 
-        <a href="https://wa.me/201200541232" target="_blank" class="contact-card whatsapp">
+        <!-- رقم الواتساب المحدث للمحادثة المباشرة بالأسفل -->
+        <a href="https://wa.me/201226546987" target="_blank" class="contact-card whatsapp">
             <i class="fab fa-whatsapp"></i>
             <span>واتساب</span>
         </a>
@@ -579,10 +581,8 @@
     <p class="copyright">&copy; 2026 جميع الحقوق محفوظة</p>
 </footer>
 
-<!-- كود الجافا سكريبت مدمج هنا مباشرة ليعمل تلقائياً وبأعلى كفاءة -->
 <script>
 document.addEventListener("DOMContentLoaded", function() {
-    // تشغيل كود أزرار تحويل الأسعار التفاعلية
     document.body.addEventListener('click', function(e) {
         if (e.target && e.target.classList.contains('price-btn')) {
             const parent = e.target.parentElement;
@@ -674,8 +674,8 @@ function sendOrderToWhatsapp() {
         return;
     }
 
-    // تم توحيد رقم الهاتف هنا ليتطابق مع الرقم المطلوب
-    const whatsappNumber = "201200541232"; 
+    // رقم الواتساب المحدث الجديد لإرسال الأوردرات والسلة
+    const whatsappNumber = "201226546987"; 
 
     let message = `*طلب جديد ومميز من الويب سايت* ☕✨\n\n`;
     message += `👤 *اسم العميل:* ${customerName}\n`;
