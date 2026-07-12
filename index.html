@@ -575,7 +575,135 @@
     <p>كل اللي تحبه تحت سقف واحد</p>
     <p class="copyright">&copy; 2026 جميع الحقوق محفوظة</p>
 </footer>
+<script>
+// دالة لتفعيل اختيار الأسعار داخل الكروت
+function setupPriceButtons() {
+    const priceButtons = document.querySelectorAll('.price-btn');
+    priceButtons.forEach(button => {
+        // حماية لمنع تكرار الإيفينت
+        button.removeEventListener('click', handlePriceClick);
+        button.addEventListener('click', handlePriceClick);
+    });
+}
 
-<script src="script.js"></script>
+function handlePriceClick(e) {
+    const parent = e.target.parentElement;
+    parent.querySelectorAll('.price-btn').forEach(btn => btn.classList.remove('active'));
+    e.target.classList.add('active');
+}
+
+// تشغيل التفعيل فوراً وعند تحميل الصفحة
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setupPriceButtons);
+} else {
+    setupPriceButtons();
+}
+
+let cart = [];
+
+// دالة إضافة أوردر جديد للسلة
+function addToCart(button) {
+    const card = button.closest('.card');
+    const baseName = card.getAttribute('data-name');
+    
+    // الحصول على السعر النشط
+    const activePriceBtn = card.querySelector('.price-btn.active');
+    if (!activePriceBtn) {
+        alert('برجاء اختيار السعر أولاً بالضغط عليه!');
+        return;
+    }
+    
+    const price = parseInt(activePriceBtn.getAttribute('data-price')) || 0;
+    const name = `${baseName} (${price} جنيه)`;
+    
+    const qtyInput = card.querySelector('.item-qty');
+    const quantity = parseInt(qtyInput.value) || 1;
+
+    if (quantity <= 0) return;
+
+    const existingItem = cart.find(item => item.name === name);
+    if (existingItem) {
+        existingItem.quantity += quantity;
+    } else {
+        cart.push({ name, price, quantity });
+    }
+
+    qtyInput.value = 1;
+    updateCartUI();
+}
+
+// دالة تحديث شكل السلة في أول الصفحة
+function updateCartUI() {
+    const cartItemsDiv = document.getElementById('cart-items');
+    const cartTotalSpan = document.getElementById('cart-total');
+    
+    if (!cartItemsDiv || !cartTotalSpan) return;
+
+    if (cart.length === 0) {
+        cartItemsDiv.innerHTML = `<p class="empty-msg">سلة الطلبات فارغة الآن.. اختر ما يسعد مودك بالأسفل!</p>`;
+        cartTotalSpan.innerText = '0';
+        return;
+    }
+
+    cartItemsDiv.innerHTML = '';
+    let total = 0;
+
+    cart.forEach((item, index) => {
+        const itemTotal = item.price * item.quantity;
+        total += itemTotal;
+        cartItemsDiv.innerHTML += `
+            <div class="cart-item-row" style="display: flex; justify-content: space-between; align-items: center; padding: 10px 5px; border-bottom: 1px solid #f3effa;">
+                <span style="font-weight: 700; color: #444;">✨ ${item.name} <strong style="color: #6a0dad;">(العدد: ${item.quantity})</strong></span>
+                <span style="font-weight: 800; color: #ff7a00;">${itemTotal} ج.م 
+                    <i class="fas fa-trash-alt" onclick="removeFromCart(${index})" style="color: #e74c3c; cursor: pointer; margin-right: 12px; font-size: 14px;"></i>
+                </span>
+            </div>
+        `;
+    });
+
+    cartTotalSpan.innerText = total;
+}
+
+function removeFromCart(index) {
+    cart.splice(index, 1);
+    updateCartUI();
+}
+
+// دالة إرسال الطلب للواتساب
+function sendOrderToWhatsapp() {
+    const customerName = document.getElementById('customer-name').value.trim();
+    
+    if (!customerName) {
+        alert('جميلنا العزيز، يرجى كتابة اسمك الكريم أولاً لتأكيد إرسال الطلب! 🙏');
+        return;
+    }
+
+    if (cart.length === 0) {
+        alert('سلة طلباتك فارغة! تصفح المنيو بالأسفل وأضف أصنافك اللذيذة أولاً.');
+        return;
+    }
+
+    const whatsappNumber = "201200541232"; 
+
+    let message = `*طلب جديد ومميز من الويب سايت* ☕✨\n\n`;
+    message += `👤 *اسم العميل:* ${customerName}\n`;
+    message += `-------------------------\n`;
+    
+    let total = 0;
+    cart.forEach(item => {
+        const itemTotal = item.price * item.quantity;
+        total += itemTotal;
+        message += `• *${item.name}*\n   الكمية المطلوبة: (${item.quantity}) -> الحساب: ${itemTotal} ج.م\n`;
+    });
+
+    message += `-------------------------\n`;
+    message += `💰 *إجمالي الحساب المطلوب:* ${total} جنيه مصري\n\n`;
+    message += `شكراً لك، في انتظار التجهيز يا فنان! ❤️`;
+
+    const encodedMessage = encodeURIComponent(message);
+    window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, '_blank');
+}
+</script>
+
 </body>
 </html>
