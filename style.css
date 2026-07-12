@@ -35,7 +35,7 @@ nav a {
 
 /* Hero Section */
 .hero {
-    height: 90vh;
+    height: 75vh;
     background: url('images/cafe-bg.jpg');
     background-size: cover;
     background-position: center;
@@ -87,259 +87,211 @@ nav a {
     box-shadow: 0 15px 30px rgba(255,122,0,.55);
 }
 
-.hero-btn:active {
-    transform: scale(.95);
+/* قسم عرض الطلبات الجديد والشيك جداً في أول الصفحة */
+.container-order-wrapper {
+    max-width: 1200px;
+    margin: 40px auto 10px;
+    padding: 0 5%;
 }
 
-/* Cards Grid */
-.category { 
-    padding: 60px 5%; 
-}
-
-.category h2 {
-    margin-bottom: 25px;
-    color: #6a0dad;
-    font-size: 36px;
-    font-weight: 900;
-}
-
-.cards { 
-    display: grid; 
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
-    gap: 25px; 
-}
-
-.card { 
-    background: white; 
-    border-radius: 15px; 
-    overflow: hidden; 
-    box-shadow: 0 5px 15px rgba(0,0,0,.1); 
-    transition: 0.3s; 
-    display: flex;
-    flex-direction: column;
-}
-
-.card:hover { 
-    transform: translateY(-10px); 
-}
-
-.card img { 
-    width: 100%; 
-    height: 220px; 
-    object-fit: cover; 
-    display: block; 
-}
-
-.card h3 {
-    color: #6a0dad;
-    font-size: 22px;
-    font-weight: 900;
-    padding: 15px 15px 4px;
-}
-
-.card p {
-    color: #ff7a00;
-    font-weight: 800;
-    font-size: 18px;
-    margin-bottom: 10px;
-    padding: 0 15px;
-    text-shadow: 0 1px 3px rgba(255,122,0,.3);
-}
-
-/* عناصر زيادة الكمية والإضافة الجديدة */
-.qty-container {
-    display: flex;
-    gap: 10px;
-    padding: 0 15px 15px;
-    margin-top: auto;
-}
-
-.item-qty {
-    width: 60px;
-    padding: 6px;
-    text-align: center;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    font-weight: bold;
-    outline: none;
-}
-
-.add-btn {
-    flex: 1;
-    background: #6a0dad;
-    color: white;
-    border: none;
-    padding: 8px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: 0.2s;
-}
-
-.add-btn:hover {
-    background: #520a8a;
-}
-
-/* سلة المشتريات العائمة الجانبية المحدثة */
-.cart-sidebar {
-    position: fixed;
-    bottom: 25px;
-    left: 25px;
-    background: white;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.25);
-    padding: 20px;
-    border-radius: 20px;
-    z-index: 1000;
-    width: 320px;
+.fancy-cart-panel {
+    background: linear-gradient(135deg, #ffffff, #fbf9fe);
+    border: 3px solid #6a0dad;
+    border-radius: 24px;
+    box-shadow: 0 15px 40px rgba(106, 13, 173, 0.15);
+    padding: 30px;
     direction: rtl;
-    display: none;
-    border: 2px solid #6a0dad;
+    transition: all 0.3s ease;
 }
 
-.cart-sidebar h4 {
+.cart-header h3 {
     color: #6a0dad;
-    margin-bottom: 12px;
-    font-size: 19px;
-    border-bottom: 2px solid #f0edf5;
-    padding-bottom: 5px;
+    font-size: 24px;
+    font-weight: 900;
+    margin-bottom: 5px;
 }
 
-.cart-items {
-    max-height: 160px;
+.cart-subtitle {
+    color: #888;
+    font-size: 14px;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.fancy-cart-items {
+    background: #fff;
+    border: 1px dashed #6a0dad;
+    border-radius: 16px;
+    padding: 15px;
+    min-height: 80px;
+    max-height: 250px;
     overflow-y: auto;
-    margin-bottom: 12px;
-    font-size: 15px;
+    margin-bottom: 20px;
 }
 
-.cart-total-box {
-    font-weight: bold;
-    margin-bottom: 12px;
+.empty-msg {
+    color: #aaa;
+    text-align: center;
+    font-style: italic;
+    padding-top: 15px;
+}
+
+.cart-item-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 5px;
+    border-bottom: 1px solid #f3effa;
+}
+
+.cart-item-row:last-child {
+    border-bottom: none;
+}
+
+.cart-footer-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: center;
+    justify-content: space-between;
+    background: #f7f3fc;
+    padding: 20px;
+    border-radius: 16px;
+}
+
+.total-row {
+    font-size: 20px;
+    font-weight: 900;
+    color: #333;
+}
+
+.total-price {
     color: #ff7a00;
-    font-size: 17px;
-    text-align: left;
+    font-size: 24px;
+    margin-right: 10px;
+}
+
+.input-group {
+    position: relative;
+    flex: 1;
+    min-width: 250px;
+}
+
+.input-group i {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #6a0dad;
+    font-size: 18px;
 }
 
 #customer-name {
     width: 100%;
-    padding: 10px;
-    margin-bottom: 12px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    outline: none;
-    font-size: 15px;
-}
-
-.send-whatsapp-btn {
-    width: 100%;
-    background: #25D366;
-    color: white;
-    border: none;
-    padding: 12px;
-    border-radius: 8px;
-    font-weight: bold;
+    padding: 12px 45px 12px 15px;
+    border: 2px solid #ddd;
+    border-radius: 12px;
     font-size: 16px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
+    font-weight: 700;
+    outline: none;
     transition: 0.3s;
 }
 
-.send-whatsapp-btn:hover {
-    background: #1ebd54;
-    transform: translateY(-2px);
+#customer-name:focus {
+    border-color: #ff7a00;
+    box-shadow: 0 0 10px rgba(255, 122, 0, 0.15);
 }
 
-/* Footer & Contact */
-.contact-section { 
-    background: #f1aa41;
-    padding: 80px 20px; 
-    text-align: center; 
-}
-
-.contact-section h2 {
+.premium-whatsapp-btn {
+    background: linear-gradient(135deg, #25D366, #1ebd54);
     color: white;
-    font-size: 40px;
-    margin-bottom: 15px;
-}
-
-.contact-text {
-    color: #fff;
-    margin-bottom: 35px;
+    border: none;
+    padding: 14px 30px;
+    border-radius: 12px;
     font-size: 18px;
-}
-
-.contact-container { 
-    display: flex; 
-    flex-direction: column;
-    align-items: center;
-    gap: 18px; 
-}
-
-.contact-card {
-    width: 320px;
-    height: 60px;
-    border-radius: 50px;
+    font-weight: 800;
+    cursor: pointer;
     display: flex;
-    flex-direction: row;
-    justify-content: center;
     align-items: center;
-    gap: 12px;
-    text-decoration: none;
-    color: white;
-    font-size: 18px;
-    font-weight: 700;
-    transition: .4s;
-    box-shadow: 0 8px 20px rgba(0,0,0,.15);
+    gap: 10px;
+    box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
+    transition: 0.3s;
 }
 
+.premium-whatsapp-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(37, 211, 102, 0.45);
+}
+
+/* تصميم أزرار الأسعار المتعددة داخل الكروت */
+.price-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 5px 15px 15px;
+}
+
+.price-btn {
+    background: #f0edf5;
+    border: 1px solid #dcd5e8;
+    color: #555;
+    padding: 6px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.price-btn:hover {
+    background: #e2daf0;
+}
+
+.price-btn.active {
+    background: #ff7a00;
+    color: white;
+    border-color: #ff7a00;
+    box-shadow: 0 4px 10px rgba(255, 122, 0, 0.2);
+}
+
+/* Cards Grid */
+.category { padding: 40px 5%; }
+.category h2 { margin-bottom: 25px; color: #6a0dad; font-size: 36px; font-weight: 900; }
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 25px; }
+.card { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,.1); transition: 0.3s; display: flex; flex-direction: column; }
+.card:hover { transform: translateY(-10px); }
+.card img { width: 100%; height: 220px; object-fit: cover; display: block; }
+.card h3 { color: #6a0dad; font-size: 22px; font-weight: 900; padding: 15px 15px 5px; }
+
+.qty-container { display: flex; gap: 10px; padding: 0 15px 15px; margin-top: auto; }
+.item-qty { width: 60px; padding: 8px; text-align: center; border: 1px solid #ddd; border-radius: 8px; font-weight: bold; }
+.add-btn { flex: 1; background: #6a0dad; color: white; border: none; padding: 8px; border-radius: 8px; cursor: pointer; font-weight: bold; transition: 0.2s; }
+.add-btn:hover { background: #520a8a; }
+
+/* Contact Section */
+.contact-section { background: #f1aa41; padding: 60px 20px; text-align: center; }
+.contact-section h2 { color: white; font-size: 40px; margin-bottom: 15px; }
+.contact-text { color: #fff; margin-bottom: 35px; font-size: 18px; }
+.contact-container { display: flex; flex-direction: column; align-items: center; gap: 18px; }
+.contact-card { width: 320px; height: 60px; border-radius: 50px; display: flex; justify-content: center; align-items: center; gap: 12px; text-decoration: none; color: white; font-size: 18px; font-weight: 700; box-shadow: 0 8px 20px rgba(0,0,0,.15); transition: 0.4s; }
 .phone { background: white; color: #6a0dad; }
 .whatsapp { background: #25D366; }
 .facebook { background: #1877F2; }
+.contact-card:hover { transform: translateY(-5px) scale(1.03); }
+footer { background: #6a0dad; color: white; text-align: center; padding: 20px; }
 
-.contact-card:hover {
-    transform: translateY(-5px) scale(1.03);
-}
-
-.contact-card i { font-size: 22px; }
-
-footer { 
-    background: #6a0dad; 
-    color: white; 
-    text-align: center; 
-    padding: 20px; 
-}
-
-/* Animations */
-@keyframes bottomUp {
-    from { opacity: 0; transform: translateY(80px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes pulseBtn {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-    100% { transform: scale(1); }
-}
-
-/* التجاوب مع الموبايل */
+/* التجاوب مع شاشات الموبايل */
 @media (max-width: 768px) {
     header { flex-direction: column; gap: 15px; padding: 15px; }
     nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
-    nav a { font-size: 15px; }
-    
-    .hero { height: 45vh !important; background-size: cover !important; background-position: center top !important; }
-    .overlay { width: 100% !important; height: 100% !important; padding: 15px !important; display: flex !important; flex-direction: column !important; justify-content: center !important; border-radius: 0 !important; }
-    
-    .title { font-size: 32px !important; margin-bottom: 5px !important; }
-    .line1, .line2, .line3 { font-size: 16px !important; margin: 3px 0 !important; }
+    .hero { height: 45vh; }
+    .title { font-size: 32px !important; }
+    .line1, .line2, .line3 { font-size: 16px !important; }
     .hero-btn { padding: 8px 20px !important; font-size: 15px !important; }
-    
     .cards { grid-template-columns: 1fr; }
     .card { max-width: 400px; margin: auto; }
-    .card img { height: 260px; }
-    .category h2 { font-size: 28px; }
     
-    .cart-sidebar { width: calc(100% - 50px); left: 25px; right: 25px; bottom: 15px; }
+    .cart-footer-form { flex-direction: column; align-items: stretch; text-align: center; }
+    .premium-whatsapp-btn { justify-content: center; }
+    .total-row { margin-bottom: 10px; }
 }
