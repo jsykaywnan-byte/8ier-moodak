@@ -34,127 +34,208 @@
     </div>
 </section>
 
+<!-- قسم عرض الطلب الشيك - في مكان بارز وواضح جداً أول الصفحة -->
+<div class="container-order-wrapper">
+    <div id="fancy-cart" class="fancy-cart-panel">
+        <div class="cart-header">
+            <h3><i class="fas fa-shopping-basket"></i> تفاصيل طلبك الحالي</h3>
+            <span class="cart-subtitle">حدد أسعار منتجاتك من الأسفل وس تظهر هنا فوراً ✨</span>
+        </div>
+        <div id="cart-items" class="fancy-cart-items">
+            <p class="empty-msg">سلة الطلبات فارغة الآن.. اختر ما يسعد مودك بالأسفل!</p>
+        </div>
+        <div class="cart-footer-form">
+            <div class="total-row">
+                <span>إجمالي الحساب:</span>
+                <span class="total-price"><span id="cart-total">0</span> جنيه</span>
+            </div>
+            <div class="input-group">
+                <i class="fas fa-user-tag"></i>
+                <input type="text" id="customer-name" placeholder="اكتب اسمك الكريم هنا لتعميد الطلب...">
+            </div>
+            <button onclick="sendOrderToWhatsapp()" class="premium-whatsapp-btn">
+                <i class="fab fa-whatsapp"></i> إرسال الأوردر للواتساب جاهز
+            </button>
+        </div>
+    </div>
+</div>
+
 <!-- الحلويات -->
 <section id="desserts" class="category">
     <div class="banner">
         <h2>🍦 الحلويات</h2>
     </div>
     <div class="cards">
-        <div class="card" data-name="ايس كريم شركات" data-price="10">
+        <div class="card" data-name="ايس كريم شركات">
             <img src="images/company_icecream.jpg">
             <h3>ايس كريم شركات</h3>
-            <p>10 جنيه</p>
+            <div class="price-options">
+                <button class="price-btn active" data-price="5">5 ج</button>
+                <button class="price-btn" data-price="7">7 ج</button>
+                <button class="price-btn" data-price="8">8 ج</button>
+                <button class="price-btn" data-price="10">10 ج</button>
+                <button class="price-btn" data-price="12">12 ج</button>
+                <button class="price-btn" data-price="15">15 ج</button>
+            </div>
             <div class="qty-container">
                 <input type="number" class="item-qty" value="1" min="1">
-                <button class="add-btn" onclick="addToCart(this)">إضافة ➕</button>
+                <button class="add-btn" onclick="addToCart(this)">إضافة للطلب ➕</button>
             </div>
         </div>
-        <div class="card" data-name="ايس كريم طبيعي" data-price="15">
+
+        <div class="card" data-name="ايس كريم طبيعي">
             <img src="images/natural_icecream.jpg">
             <h3>ايس كريم طبيعي</h3>
-            <p>15 جنيه</p>
+            <div class="price-options">
+                <button class="price-btn active" data-price="10">10 ج</button>
+                <button class="price-btn" data-price="15">15 ج</button>
+                <button class="price-btn" data-price="20">20 ج</button>
+            </div>
             <div class="qty-container">
                 <input type="number" class="item-qty" value="1" min="1">
-                <button class="add-btn" onclick="addToCart(this)">إضافة ➕</button>
+                <button class="add-btn" onclick="addToCart(this)">إضافة للطلب ➕</button>
             </div>
         </div>
-        <div class="card" data-name="ايس كريم بالمكسرات" data-price="25">
+
+        <div class="card" data-name="ايس كريم بالمكسرات">
             <img src="images/nuts_icecream.jpg">
             <h3>ايس كريم بالمكسرات</h3>
-            <p>25 جنيه</p>
+            <div class="price-options">
+                <button class="price-btn active" data-price="25">25 ج</button>
+            </div>
             <div class="qty-container">
                 <input type="number" class="item-qty" value="1" min="1">
-                <button class="add-btn" onclick="addToCart(this)">إضافة ➕</button>
+                <button class="add-btn" onclick="addToCart(this)">إضافة للطلب ➕</button>
             </div>
         </div>
-        <div class="card" data-name="وافل" data-price="50">
+
+        <div class="card" data-name="وافل">
             <img src="images/waffle.jpg">
             <h3>وافل</h3>
-            <p>50 جنيه</p>
+            <div class="price-options">
+                <button class="price-btn active" data-price="40">40 ج</button>
+                <button class="price-btn" data-price="50">50 ج</button>
+                <button class="price-btn" data-price="80">80 ج</button>
+                <button class="price-btn" data-price="100">100 ج</button>
+            </div>
             <div class="qty-container">
                 <input type="number" class="item-qty" value="1" min="1">
-                <button class="add-btn" onclick="addToCart(this)">إضافة ➕</button>
+                <button class="add-btn" onclick="addToCart(this)">إضافة للطلب ➕</button>
             </div>
         </div>
-        <div class="card" data-name="بان كيك" data-price="15">
+
+        <div class="card" data-name="بان كيك">
             <img src="images/pancake.jpg">
             <h3>بان كيك</h3>
-            <p>15 جنيه</p>
+            <div class="price-options">
+                <button class="price-btn active" data-price="10">10 ج</button>
+                <button class="price-btn" data-price="20">20 ج</button>
+            </div>
             <div class="qty-container">
                 <input type="number" class="item-qty" value="1" min="1">
-                <button class="add-btn" onclick="addToCart(this)">إضافة ➕</button>
+                <button class="add-btn" onclick="addToCart(this)">إضافة للطلب ➕</button>
             </div>
         </div>
-        <div class="card" data-name="غزل البنات" data-price="10">
+
+        <div class="card" data-name="غزل البنات">
             <img src="images/cotton-candy.jpg">
             <h3>غزل البنات</h3>
-            <p>10 جنيه</p>
+            <div class="price-options">
+                <button class="price-btn active" data-price="5">5 ج</button>
+                <button class="price-btn" data-price="10">10 ج</button>
+                <button class="price-btn" data-price="20">20 ج</button>
+            </div>
             <div class="qty-container">
                 <input type="number" class="item-qty" value="1" min="1">
-                <button class="add-btn" onclick="addToCart(this)">إضافة ➕</button>
+                <button class="add-btn" onclick="addToCart(this)">إضافة للطلب ➕</button>
             </div>
         </div>
-        <div class="card" data-name="مارشميلو" data-price="20">
+
+        <div class="card" data-name="مارشميلو">
             <img src="images/marshmallow.jpg">
             <h3>مارشميلو</h3>
-            <p>20 جنيه</p>
+            <div class="price-options">
+                <button class="price-btn active" data-price="20">20 ج</button>
+            </div>
             <div class="qty-container">
                 <input type="number" class="item-qty" value="1" min="1">
-                <button class="add-btn" onclick="addToCart(this)">إضافة ➕</button>
+                <button class="add-btn" onclick="addToCart(this)">إضافة للطلب ➕</button>
             </div>
         </div>
-        <div class="card" data-name="كاندي اسباني" data-price="20">
+
+        <div class="card" data-name="كاندي اسباني">
             <img src="images/candy.jpg">
             <h3>كاندي اسباني</h3>
-            <p>20 جنيه</p>
+            <div class="price-options">
+                <button class="price-btn active" data-price="20">20 ج</button>
+            </div>
             <div class="qty-container">
                 <input type="number" class="item-qty" value="1" min="1">
-                <button class="add-btn" onclick="addToCart(this)">إضافة ➕</button>
+                <button class="add-btn" onclick="addToCart(this)">إضافة للطلب ➕</button>
             </div>
         </div>
-        <div class="card" data-name="علبة شيكوبون" data-price="10">
+
+        <div class="card" data-name="علبة شيكوبون">
             <img src="images/chocobon.jpg">
             <h3>علبة شيكوبون</h3>
-            <p>10 جنيه</p>
+            <div class="price-options">
+                <button class="price-btn active" data-price="10">10 ج</button>
+            </div>
             <div class="qty-container">
                 <input type="number" class="item-qty" value="1" min="1">
-                <button class="add-btn" onclick="addToCart(this)">إضافة ➕</button>
+                <button class="add-btn" onclick="addToCart(this)">إضافة للطلب ➕</button>
             </div>
         </div>
-        <div class="card" data-name="شيكولاتة ميجا" data-price="5">
+
+        <div class="card" data-name="شيكولاتة ميجا">
             <img src="images/chocolate.jpg">
             <h3>شيكولاتة ميجا</h3>
-            <p>5 جنيه</p>
+            <div class="price-options">
+                <button class="price-btn active" data-price="5">5 ج</button>
+            </div>
             <div class="qty-container">
                 <input type="number" class="item-qty" value="1" min="1">
-                <button class="add-btn" onclick="addToCart(this)">إضافة ➕</button>
+                <button class="add-btn" onclick="addToCart(this)">إضافة للطلب ➕</button>
             </div>
         </div>
-        <div class="card" data-name="طبق السعادة" data-price="30">
+
+        <div class="card" data-name="طبق السعادة">
             <img src="images/happiness_cup.jpg">
             <h3>طبق السعادة</h3>
-            <p>30 جنيه</p>
+            <div class="price-options">
+                <button class="price-btn active" data-price="20">20 ج</button>
+                <button class="price-btn" data-price="30">30 ج</button>
+                <button class="price-btn" data-price="35">35 ج</button>
+            </div>
             <div class="qty-container">
                 <input type="number" class="item-qty" value="1" min="1">
-                <button class="add-btn" onclick="addToCart(this)">إضافة ➕</button>
+                <button class="add-btn" onclick="addToCart(this)">إضافة للطلب ➕</button>
             </div>
         </div>
-        <div class="card" data-name="دوناتس" data-price="25">
+
+        <div class="card" data-name="دوناتس">
             <img src="images/donuts.jpg">
             <h3>دوناتس</h3>
-            <p>25 جنيه</p>
+            <div class="price-options">
+                <button class="price-btn active" data-price="20">20 ج</button>
+                <button class="price-btn" data-price="25">25 ج</button>
+                <button class="price-btn" data-price="30">30 ج</button>
+            </div>
             <div class="qty-container">
                 <input type="number" class="item-qty" value="1" min="1">
-                <button class="add-btn" onclick="addToCart(this)">إضافة ➕</button>
+                <button class="add-btn" onclick="addToCart(this)">إضافة للطلب ➕</button>
             </div>
         </div>
-        <div class="card" data-name="سلطة فواكه" data-price="40">
+
+        <div class="card" data-name="سلطة فواكه">
             <img src="images/fruit_salad.jpg">
             <h3>سلطة فواكه</h3>
-            <p>40 جنيه</p>
+            <div class="price-options">
+                <button class="price-btn active" data-price="40">40 ج</button>
+            </div>
             <div class="qty-container">
                 <input type="number" class="item-qty" value="1" min="1">
-                <button class="add-btn" onclick="addToCart(this)">إضافة ➕</button>
+                <button class="add-btn" onclick="addToCart(this)">إضافة للطلب ➕</button>
             </div>
         </div>
     </div>
@@ -166,85 +247,117 @@
         <h2>🍔 الأكلات</h2>
     </div>
     <div class="cards">
-        <div class="card" data-name="ميني برجر" data-price="20">
+        <div class="card" data-name="ميني برجر">
             <img src="images/burger.jpg">
             <h3>ميني برجر</h3>
-            <p>20 جنيه</p>
+            <div class="price-options">
+                <button class="price-btn active" data-price="20">20 ج</button>
+            </div>
             <div class="qty-container">
                 <input type="number" class="item-qty" value="1" min="1">
-                <button class="add-btn" onclick="addToCart(this)">إضافة ➕</button>
+                <button class="add-btn" onclick="addToCart(this)">إضافة للطلب ➕</button>
             </div>
         </div>
-        <div class="card" data-name="حواوشي" data-price="30">
+
+        <div class="card" data-name="حواوشي">
             <img src="images/hawawshi.jpg">
             <h3>حواوشي</h3>
-            <p>30 جنيه</p>
+            <div class="price-options">
+                <button class="price-btn active" data-price="25">25 ج</button>
+                <button class="price-btn" data-price="30">30 ج</button>
+                <button class="price-btn" data-price="35">35 ج</button>
+            </div>
             <div class="qty-container">
                 <input type="number" class="item-qty" value="1" min="1">
-                <button class="add-btn" onclick="addToCart(this)">إضافة ➕</button>
+                <button class="add-btn" onclick="addToCart(this)">إضافة للطلب ➕</button>
             </div>
         </div>
-        <div class="card" data-name="كشري" data-price="25">
+
+        <div class="card" data-name="كشري">
             <img src="images/koshary.jpg">
             <h3>كشري</h3>
-            <p>25 جنيه</p>
+            <div class="price-options">
+                <button class="price-btn active" data-price="20">20 ج</button>
+                <button class="price-btn" data-price="30">30 ج</button>
+            </div>
             <div class="qty-container">
                 <input type="number" class="item-qty" value="1" min="1">
-                <button class="add-btn" onclick="addToCart(this)">إضافة ➕</button>
+                <button class="add-btn" onclick="addToCart(this)">إضافة للطلب ➕</button>
             </div>
         </div>
-        <div class="card" data-name="ساندوتش استربس" data-price="25">
+
+        <div class="card" data-name="ساندوتش استربس">
             <img src="images/sandwetch_strips.jpg">
             <h3>ساندوتش استربس</h3>
-            <p>25 جنيه</p>
+            <div class="price-options">
+                <button class="price-btn active" data-price="25">25 ج</button>
+            </div>
             <div class="qty-container">
                 <input type="number" class="item-qty" value="1" min="1">
-                <button class="add-btn" onclick="addToCart(this)">إضافة ➕</button>
+                <button class="add-btn" onclick="addToCart(this)">إضافة للطلب ➕</button>
             </div>
         </div>
-        <div class="card" data-name="ساندوتش بانيه" data-price="15">
+
+        <div class="card" data-name="ساندوتش بانيه">
             <img src="images/sandwetch_panih.jpg">
             <h3>ساندوتش بانيه</h3>
-            <p>15 جنيه</p>
+            <div class="price-options">
+                <button class="price-btn active" data-price="15">15 ج</button>
+            </div>
             <div class="qty-container">
                 <input type="number" class="item-qty" value="1" min="1">
-                <button class="add-btn" onclick="addToCart(this)">إضافة ➕</button>
+                <button class="add-btn" onclick="addToCart(this)">إضافة للطلب ➕</button>
             </div>
         </div>
-        <div class="card" data-name="ساندوتش كفتة" data-price="18">
+
+        <div class="card" data-name="ساندوتش كفتة">
             <img src="images/kofta.jpg">
             <h3>ساندوتش كفتة</h3>
-            <p>18 جنيه</p>
+            <div class="price-options">
+                <button class="price-btn active" data-price="15">15 ج</button>
+                <button class="price-btn" data-price="20">20 ج</button>
+            </div>
             <div class="qty-container">
                 <input type="number" class="item-qty" value="1" min="1">
-                <button class="add-btn" onclick="addToCart(this)">إضافة ➕</button>
+                <button class="add-btn" onclick="addToCart(this)">إضافة للطلب ➕</button>
             </div>
         </div>
-        <div class="card" data-name="كريب بطاطس" data-price="40">
+
+        <div class="card" data-name="كريب بطاطس">
             <img src="images/crepe.jpg">
             <h3>كريب بطاطس</h3>
-            <p>40 جنيه</p>
+            <div class="price-options">
+                <button class="price-btn active" data-price="40">40 ج</button>
+            </div>
             <div class="qty-container">
                 <input type="number" class="item-qty" value="1" min="1">
-                <button class="add-btn" onclick="addToCart(this)">إضافة ➕</button>
+                <button class="add-btn" onclick="addToCart(this)">إضافة للطلب ➕</button>
             </div>
         </div>
-        <div class="card" data-name="اندومي" data-price="10">
+
+        <div class="card" data-name="اندومي">
             <img src="images/indomie.jpg">
             <h3>اندومي</h3>
-            <p>10 جنيه</p>
+            <div class="price-options">
+                <button class="price-btn active" data-price="5">5 ج</button>
+                <button class="price-btn" data-price="10">10 ج</button>
+                <button class="price-btn" data-price="15">15 ج</button>
+            </div>
             <div class="qty-container">
                 <input type="number" class="item-qty" value="1" min="1">
-                <button class="add-btn" onclick="addToCart(this)">إضافة ➕</button>
+                <button class="add-btn" onclick="addToCart(this)">إضافة للطلب ➕</button>
             </div>
         </div>
-        <div class="card" data-name="كريب استربس" data-price="80">
+
+        <div class="card" data-name="كريب استربس">
             <img src="images/crepe_strips.jpg">
             <h3>كريب استربس</h3>
-            <p>80 جنيه</p>
+            <div class="price-options">
+                <button class="price-btn active" data-price="80">80 ج</button>
+            </div>
             <div class="qty-container">
                 <input type="number" class="item-qty" value="1" min="1">
-                <button class="add-btn" onclick="addToCart(this)">إضافة ➕</button>
+                <button class="add-btn" onclick="addToCart(this)">إضافة للطلب ➕</button>
             </div>
         </div>
     </div>
@@ -256,76 +369,100 @@
         <h2>🥤 المشروبات</h2>
     </div>
     <div class="cards">
-        <div class="card" data-name="بيبسي" data-price="20">
+        <div class="card" data-name="بيبسي">
             <img src="images/pepsi.jpg">
             <h3>بيبسي</h3>
-            <p>20 جنيه</p>
+            <div class="price-options">
+                <button class="price-btn active" data-price="20">20 ج</button>
+            </div>
             <div class="qty-container">
                 <input type="number" class="item-qty" value="1" min="1">
-                <button class="add-btn" onclick="addToCart(this)">إضافة ➕</button>
+                <button class="add-btn" onclick="addToCart(this)">إضافة للطلب ➕</button>
             </div>
         </div>
-        <div class="card" data-name="فيروز" data-price="20">
+
+        <div class="card" data-name="فيروز">
             <img src="images/fayrouz.jpg">
             <h3>فيروز</h3>
-            <p>20 جنيه</p>
+            <div class="price-options">
+                <button class="price-btn active" data-price="20">20 ج</button>
+            </div>
             <div class="qty-container">
                 <input type="number" class="item-qty" value="1" min="1">
-                <button class="add-btn" onclick="addToCart(this)">إضافة ➕</button>
+                <button class="add-btn" onclick="addToCart(this)">إضافة للطلب ➕</button>
             </div>
         </div>
-        <div class="card" data-name="نسكافيه كراميل" data-price="25">
+
+        <div class="card" data-name="نسكافيه كراميل">
             <img src="images/nescafe-caramel.jpg">
             <h3>نسكافيه كراميل</h3>
-            <p>25 جنيه</p>
+            <div class="price-options">
+                <button class="price-btn active" data-price="25">25 ج</button>
+            </div>
             <div class="qty-container">
                 <input type="number" class="item-qty" value="1" min="1">
-                <button class="add-btn" onclick="addToCart(this)">إضافة ➕</button>
+                <button class="add-btn" onclick="addToCart(this)">إضافة للطلب ➕</button>
             </div>
         </div>
-        <div class="card" data-name="عصير بخيرة" data-price="7">
+
+        <div class="card" data-name="عصير بخيرة">
             <img src="images/bakhira.jpg">
             <h3>عصير بخيرة</h3>
-            <p>7 جنيه</p>
+            <div class="price-options">
+                <button class="price-btn active" data-price="7">7 ج</button>
+            </div>
             <div class="qty-container">
                 <input type="number" class="item-qty" value="1" min="1">
-                <button class="add-btn" onclick="addToCart(this)">إضافة ➕</button>
+                <button class="add-btn" onclick="addToCart(this)">إضافة للطلب ➕</button>
             </div>
         </div>
-        <div class="card" data-name="أكشن رومان" data-price="15">
+
+        <div class="card" data-name="أكشن رومان">
             <img src="images/action-roman.jpg">
             <h3>أكشن رومان</h3>
-            <p>15 جنيه</p>
+            <div class="price-options">
+                <button class="price-btn active" data-price="15">15 ج</button>
+            </div>
             <div class="qty-container">
                 <input type="number" class="item-qty" value="1" min="1">
-                <button class="add-btn" onclick="addToCart(this)">إضافة ➕</button>
+                <button class="add-btn" onclick="addToCart(this)">إضافة للطلب ➕</button>
             </div>
         </div>
-        <div class="card" data-name="عصير كوكتيل" data-price="25">
+
+        <div class="card" data-name="عصير كوكتيل">
             <img src="images/cocktail.jpg">
             <h3>عصير كوكتيل</h3>
-            <p>25 جنيه</p>
+            <div class="price-options">
+                <button class="price-btn active" data-price="25">25 ج</button>
+                <button class="price-btn" data-price="30">30 ج</button>
+            </div>
             <div class="qty-container">
                 <input type="number" class="item-qty" value="1" min="1">
-                <button class="add-btn" onclick="addToCart(this)">إضافة ➕</button>
+                <button class="add-btn" onclick="addToCart(this)">إضافة للطلب ➕</button>
             </div>
         </div>
-        <div class="card" data-name="مشروبات ساخنة" data-price="15">
+
+        <div class="card" data-name="مشروبات ساخنة">
             <img src="images/tea.jpg">
             <h3>مشروبات ساخنة</h3>
-            <p>15 جنيه</p>
+            <div class="price-options">
+                <button class="price-btn active" data-price="15">15 ج</button>
+            </div>
             <div class="qty-container">
                 <input type="number" class="item-qty" value="1" min="1">
-                <button class="add-btn" onclick="addToCart(this)">إضافة ➕</button>
+                <button class="add-btn" onclick="addToCart(this)">إضافة للطلب ➕</button>
             </div>
         </div>
-        <div class="card" data-name="مياه" data-price="7">
+
+        <div class="card" data-name="مياه">
             <img src="images/water.jpg">
             <h3>مياه</h3>
-            <p>7 جنيه</p>
+            <div class="price-options">
+                <button class="price-btn active" data-price="7">7 ج</button>
+            </div>
             <div class="qty-container">
                 <input type="number" class="item-qty" value="1" min="1">
-                <button class="add-btn" onclick="addToCart(this)">إضافة ➕</button>
+                <button class="add-btn" onclick="addToCart(this)">إضافة للطلب ➕</button>
             </div>
         </div>
     </div>
@@ -337,40 +474,56 @@
         <h2>🍿 السناكس</h2>
     </div>
     <div class="cards">
-        <div class="card" data-name="شيبسي" data-price="7">
+        <div class="card" data-name="شيبسي">
             <img src="images/chips.jpg">
             <h3>شيبسي</h3>
-            <p>7 جنيه</p>
+            <div class="price-options">
+                <button class="price-btn active" data-price="5">5 ج</button>
+                <button class="price-btn" data-price="10">10 ج</button>
+            </div>
             <div class="qty-container">
                 <input type="number" class="item-qty" value="1" min="1">
-                <button class="add-btn" onclick="addToCart(this)">إضافة ➕</button>
+                <button class="add-btn" onclick="addToCart(this)">إضافة للطلب ➕</button>
             </div>
         </div>
-        <div class="card" data-name="روستيكا" data-price="7">
+
+        <div class="card" data-name="روستيكا">
             <img src="images/rostica.jpg">
             <h3>روستيكا</h3>
-            <p>7 جنيه</p>
+            <div class="price-options">
+                <button class="price-btn active" data-price="5">5 ج</button>
+                <button class="price-btn" data-price="10">10 ج</button>
+            </div>
             <div class="qty-container">
                 <input type="number" class="item-qty" value="1" min="1">
-                <button class="add-btn" onclick="addToCart(this)">إضافة ➕</button>
+                <button class="add-btn" onclick="addToCart(this)">إضافة للطلب ➕</button>
             </div>
         </div>
-        <div class="card" data-name="فشار" data-price="7">
+
+        <div class="card" data-name="فشار">
             <img src="images/popcorn.jpg">
             <h3>فشار</h3>
-            <p>7 جنيه</p>
+            <div class="price-options">
+                <button class="price-btn active" data-price="5">5 ج</button>
+                <button class="price-btn" data-price="10">10 ج</button>
+            </div>
             <div class="qty-container">
                 <input type="number" class="item-qty" value="1" min="1">
-                <button class="add-btn" onclick="addToCart(this)">إضافة ➕</button>
+                <button class="add-btn" onclick="addToCart(this)">إضافة للطلب ➕</button>
             </div>
         </div>
-        <div class="card" data-name="بطاطس حلزوني" data-price="10">
+
+        <div class="card" data-name="بطاطس حلزوني">
             <img src="images/potato.jpg">
             <h3>بطاطس حلزوني</h3>
-            <p>10 جنيه</p>
+            <div class="price-options">
+                <button class="price-btn active" data-price="5">5 ج</button>
+                <button class="price-btn" data-price="10">10 ج</button>
+                <button class="price-btn" data-price="15">15 ج</button>
+            </div>
             <div class="qty-container">
                 <input type="number" class="item-qty" value="1" min="1">
-                <button class="add-btn" onclick="addToCart(this)">إضافة ➕</button>
+                <button class="add-btn" onclick="addToCart(this)">إضافة للطلب ➕</button>
             </div>
         </div>
     </div>
@@ -417,17 +570,6 @@
     </div>
 </section>
 
-<!-- سلة المشتريات العائمة الجانبية -->
-<div id="cart-sidebar" class="cart-sidebar">
-    <h4>🛒 طلباتك الحالية:</h4>
-    <div id="cart-items" class="cart-items"></div>
-    <div class="cart-total-box">الإجمالي: <span id="cart-total">0</span> جنيه</div>
-    <input type="text" id="customer-name" placeholder="اكتب اسمك هنا...">
-    <button onclick="sendOrderToWhatsapp()" class="send-whatsapp-btn">
-        <i class="fab fa-whatsapp"></i> إرسال الطلب عبر الواتساب
-    </button>
-</div>
-
 <footer class="main-footer">
     <h3>✨ غير مودك</h3>
     <p>كل اللي تحبه تحت سقف واحد</p>
@@ -437,4 +579,3 @@
 <script src="script.js"></script>
 </body>
 </html>
-
